@@ -1,0 +1,33 @@
+{
+    "executionRoleArn": "arn:aws:iam::683364194777:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "ab",
+            "image": "<IMAGE1_NAME>",
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/ab",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },        
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "memory": "512",
+    "taskRoleArn": "arn:aws:iam::683364194777:role/ecsTaskExecutionRole",
+    "family": "ab"
+}

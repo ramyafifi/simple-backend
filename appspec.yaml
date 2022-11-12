@@ -1,0 +1,9 @@
+version: 0.2
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: <TASK_DEFINITION>
+        LoadBalancerInfo:
+          ContainerName: "ab"
+          ContainerPort: 80
